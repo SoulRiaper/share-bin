@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from "react"
+import { useForm, useValidation } from "./common/Form";
 
 
 function BinEditor (props) {
+  const updateForm = useForm(props.name);
   const [text, setText] = useState(props.initialText ? props.initialText : "");
   const areaRef = useRef(null);
+  const valid = useValidation(text, (val) => val !== '');
 
   const calculateHeight = () => {
     if (areaRef.current) {
@@ -12,25 +15,28 @@ function BinEditor (props) {
     }
   }
 
+  const inputHandler = (e) => {
+    const value = e.target.value;
+    setText(() => value);
+    updateForm(value);
+  }
+
   useEffect(() => {
     calculateHeight();
   }, [text])
   return (
-    <div className="p-3">
-      <h4>Bin editor</h4>
       <textarea
         ref={areaRef}
-        className="form-control bin-editor-area"
+        className={"form-control bin-editor-area " + (valid ? '' : 'is-invalid' )}
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={(e) => inputHandler(e)}
         placeholder="Enter your bin..."
         rows={10}
-        style={ {
+        style={{
           resize: "none",
           overflow: "hidden",
         }}
       />
-    </div>
   )
 }
 
