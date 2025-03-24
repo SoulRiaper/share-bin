@@ -1,18 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-function Header () {
-  const [theme, setTheme] = useState('light');
-  
-  const toggleTheme = () => {
-    setTheme((current) => current == 'light' ? 'dark' : 'light');
-    if (theme == 'light') {
-      document.body.classList.remove('bg-dark');
-      document.body.classList.remove('text-white');
+const Header = () => {
+  const [theme, setTheme] = useState(() => {
+    const storedTheme = localStorage.getItem('theme');
+    return storedTheme ? storedTheme : 'light';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+    if (theme === 'light') {
+      document.body.classList.remove('bg-dark', 'text-white');
     } else {
-      document.body.classList.add('bg-dark');
-      document.body.classList.add('text-white');
+      document.body.classList.add('bg-dark', 'text-white');
     }
-  } 
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((current) => (current === 'light' ? 'dark' : 'light'));
+  };
 
   return (
     <nav className="bin-header navbar navbar-expand-lg">
@@ -27,7 +32,7 @@ function Header () {
           </ul>
           <div className="btn btn-outline-secondary me-1" onClick={toggleTheme}><i className="bi bi-moon-stars"></i></div>
           <form className="d-flex">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <input className="form-control me-2 bin-editor-area" type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
