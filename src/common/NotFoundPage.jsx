@@ -7,14 +7,13 @@ const NotFoundPage = () => {
         <div class="error-container">
           <div class="error-icon">🔍</div>
           <h1 class="error-code text-muted">404</h1>
-          <h2 class="error-title">Страница не найдена</h2>
+          <h2 class="error-title">Ой! Страница потерялась в космосе</h2>
           <p class="error-message">
-            Запрашиваемая страница не существует или была перемещена.
-            <br/>Проверьте URL или вернитесь на главную.
+            Похоже, мы не можем найти страницу, которую вы ищете.<br/>
+            Возможно, она была перемещена или больше не существует.
           </p>
           <div class="error-actions">
-            <a href="/" class="btn btn-primary error-btn">На главную</a>
-            <a href="#" class="btn btn-outline-secondary error-btn">Назад</a>
+            <a href="#/" class="btn btn-primary error-btn">На главную</a>
           </div>
         </div>
       </div>
