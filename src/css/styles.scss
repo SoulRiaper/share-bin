@@ -3,12 +3,13 @@
 }
 
 .bin-header {
-  border-bottom: 1px solid;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0px 1px 4px #dee2e6;
 }
 
 .bg-dark .bin-header {
-  box-shadow: 0px 1px 4px rgba(255, 255, 255, 0.7);;
+  border-color: #444444;
+  box-shadow: 0px 1px 4px #444444;;
 }
 
 .main-container {
@@ -58,4 +59,13 @@ footer {
 
 .bg-dark footer .text-muted {
   color: #e0e0e0 !important;
+}
+
+.delete-tag {
+  cursor: pointer;
+}
+
+.tag-container {
+  display: flex;
+  gap: 10px;
 }
