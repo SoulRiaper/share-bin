@@ -57,7 +57,7 @@ footer {
   color: #e0e0e0 !important;
 }
 
-.bg-dark footer .text-muted {
+.bg-dark .text-muted {
   color: #e0e0e0 !important;
 }
 
@@ -68,4 +68,54 @@ footer {
 .tag-container {
   display: flex;
   gap: 10px;
+}
+.error-page {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.error-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.error-code {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.bg-dark .error-code {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.error-title {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.error-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.error-btn {
+  min-width: 160px;
 }
