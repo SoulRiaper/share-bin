@@ -11,9 +11,17 @@ function Form ({children}) {
     setData(prev => (Object.assign(prev, {[property]: value})));
   }, []);
 
+  const saveData = () => {
+    console.log(data);
+  }
+
   return (
     <FormContext.Provider value={{ data, updateData}}>
       {children}
+      <div className="d-flex justify-content-between">
+        <div></div>
+        <button onClick={saveData} className="btn btn-sm btn-outline-success">Save bin</button>
+      </div>
     </FormContext.Provider>
   )
 }

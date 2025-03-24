@@ -35,7 +35,7 @@ const TagEditor = (props) => {
     <div>
       <div className="tag-container mb-2">
         {tags.map((tag, index) => (
-          <span key={index} class="badge rounded-pill bg-secondary">{tag}
+          <span key={index} className="badge rounded-pill bg-secondary">{tag}
             <i onClick={() => removeTag(index)} className="delete-tag ms-1 bi bi-x-lg"></i>
           </span>
         ))}
